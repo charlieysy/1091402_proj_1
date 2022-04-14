@@ -8,7 +8,7 @@ main:
 	la a0,Input0
 	li a7,4
 	ecall
-	li a7,5	#input number
+	li a7,5
 	ecall
         li    s0, 2
         jal   ra, L2
