@@ -1,7 +1,8 @@
 .globl main
 .data
 	Input0:	.string"Input a number:\n"
-	Output0:     .string "The damage:\n"
+	Output0:	.string "The damage:\n"
+	Output1:	.string "(Input number out of range.)\n"
 .text
 main:
 	la a0,Input0
@@ -94,3 +95,6 @@ end:
         li   a7, 10
         ecall                  # exit
 OutOfRange:
+	la    a0, Output1
+        li    a7, 4
+        ecall
