@@ -63,6 +63,9 @@ L3:
         addi  sp, sp, 12       # pop the stack
         ret                    # return     
 L4:	
+	addi x28,zero,100
+	bge a0,x28,OutOfRange		#if(x>=21) ->L4
+	
         blt   a0, x7, L3       # if(x < 21)
         addi  sp, sp, -12      # push the stack
         sw    ra, 8(sp)        # store return address
@@ -90,3 +93,4 @@ end:
         ecall                  # print int result
         li   a7, 10
         ecall                  # exit
+OutOfRange:
