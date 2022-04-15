@@ -2,35 +2,35 @@
 .data
 	Input0:	.string"Input a number:\n"
 	Output0:	.string "The damage:\n"
-	Output1:	.string "(Input number out of range.)\n"
+	Output1:	.string "(Input number out of x1nge.)\n"
 .text
 main:
 	la a0,Input0
 	li a7,4
 	ecall
-	li a7,5
+	li a7,5	#input number
 	ecall
-        li    s0, 2
-        jal   ra, L2
+        addi x8,x0,2
+        jal   x1, L2
         mv    a1, a0
-        jal ra,end
+        jal x1,end
 L2:
 	addi x6,zero,11
 	bge a0,x6,L3
 	blt   a0, s0, L1
         
         addi  sp, sp, -12
-        sw    ra, 8(sp)
+        sw    x1, 8(sp)
         sw    a0, 4(sp)
         addi  a0, a0, -1
-        jal   ra, L2
+        jal   x1, L2
         sw    a0, 0(sp)
         lw    a0, 4(sp)
         addi  a0, a0, -2
-        jal   ra, L2
+        jal   x1, L2
         lw    t0, 0(sp)
         add   a0, a0, t0
-        lw    ra, 8(sp)
+        lw    x1, 8(sp)
         addi  sp, sp, 12
         ret
 L1:
@@ -50,17 +50,17 @@ L3:
 	
         blt   a0, x6, L2
         addi  sp, sp, -12
-        sw    ra, 8(sp)
+        sw    x1, 8(sp)
         sw    a0, 4(sp)
         addi  a0, a0, -2
-        jal   ra, L3
+        jal   x1, L3
         sw    a0, 0(sp)
         lw    a0, 4(sp)
         addi  a0, a0, -3
-        jal   ra, L3
+        jal   x1, L3
         lw    t0, 0(sp)
         add   a0, a0, t0
-        lw    ra, 8(sp)
+        lw    x1, 8(sp)
         addi  sp, sp, 12
         ret
 L4:	
@@ -69,7 +69,7 @@ L4:
 	
         blt   a0, x7, L3
         addi  sp, sp, -12
-        sw    ra, 8(sp)
+        sw    x1, 8(sp)
         sw    a0, 4(sp)
         
         slli a0,a0,1
@@ -77,10 +77,10 @@ L4:
         lw    a0, 4(sp)
         addi x29,zero,5
         div a0,a0,x29
-        jal   ra, L4
+        jal   x1, L4
         lw    t0, 0(sp)
         add   a0, a0, t0
-        lw    ra, 8(sp)
+        lw    x1, 8(sp)
         addi  sp, sp, 12
         ret
 end:
