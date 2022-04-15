@@ -42,9 +42,7 @@ L1:
         ret
 L0:
 	addi a0,zero,1
-        ret
-otherwise:
-    
+        ret  
 L3:
 	addi x7,zero,21
 	bge a0,x7,L4
@@ -99,3 +97,4 @@ OutOfRange:
 	la    a0, Output1
         li    a7, 4
         ecall
+otherwise:
