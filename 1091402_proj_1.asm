@@ -11,7 +11,7 @@ main:
 	li a7,5
 	ecall
         jal   x1, L2
-        mv    x, a0
+        mv    x11, a0
         jal ra,end
 L2:
 	addi x6,x0,2
