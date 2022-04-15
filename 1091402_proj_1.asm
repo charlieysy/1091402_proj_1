@@ -11,7 +11,7 @@ main:
 	li a7,5
 	ecall
         jal   x1, L2
-        mv    x11, a0
+        mv    t1, a0
         jal ra,end
 L2:
 	addi x6,x0,2
@@ -86,7 +86,7 @@ end:
         la    a0, Output0
         li    a7, 4
         ecall
-        mv    a0, x11
+        mv    a0, t1
         li    a7, 1
         ecall
         li   a7, 10
