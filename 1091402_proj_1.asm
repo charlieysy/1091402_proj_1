@@ -10,14 +10,15 @@ main:
 	ecall
 	li a7,5	#input number
 	ecall
-        addi x8,x0,2
         jal   x1, L2
         mv    a1, a0
         jal x1,end
 L2:
+	addi x8,x0,2
+	blt   a0, s0, L1
+
 	addi x6,zero,11
 	bge a0,x6,L3
-	blt   a0, s0, L1
         
         addi  sp, sp, -12
         sw    x1, 8(sp)
