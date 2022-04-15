@@ -83,7 +83,6 @@ L4:
         addi  sp, sp, 12
         ret
 end:
-	mv    x5, a0
         mv    x6, x11
         la    a0, Output0
         li    a7, 4
