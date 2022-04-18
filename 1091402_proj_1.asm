@@ -11,7 +11,7 @@ main:
 	li a7,5
 	ecall
         jal   x1, L2
-        mv    t1, a0
+        mv    x11, a0
         jal ra,end
 L2:
 	addi x6,x0,2
@@ -65,7 +65,7 @@ L3:
         ret
 L4:	
 	addi x28,zero,100
-	bge a0,x28,OutOfRange
+	bge a0,x28,otherwise
         blt   a0, x30, L3
 	
         addi  sp, sp, -12
@@ -86,13 +86,13 @@ end:
         la    a0, Output0
         li    a7, 4
         ecall
-        mv    a0, t1
+        mv    a0, x11
         li    a7, 1
         ecall
         li   a7, 10
         ecall
-OutOfRange:
-	la    a0, Output1
-        li    a7, 4
-        ecall
+
 otherwise:
+	addi a0,zero,-1
+	li    a7, 1
+        ecall
