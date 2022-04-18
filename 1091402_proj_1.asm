@@ -36,8 +36,7 @@ L2:
         ret
 L1:
 	beq a0,zero,L0
-	addi x28,zero,-1
-	beq a0,x28,otherwise
+	blt a0,zero,otherwise
 	addi a0,zero,5
         ret
 L0:
